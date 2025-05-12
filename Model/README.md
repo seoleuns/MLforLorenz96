@@ -1,4 +1,4 @@
-Here codes for ML predictions are included.
+Here, codes for ML predictions are included.
 
 The main code is savegrid40.py for running the ML model and data assimilation cycling.
 
