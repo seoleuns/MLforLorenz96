@@ -16,5 +16,6 @@ Changes for the applications to the Lorenz '96 system have been made:
 4. A New Sampling strategy during the reverse processes in DDIM and DDPM 
 5. Use of diverse evaluation Metrics for Time series Data
 
-The size of Numpy Array Datasets is quite large and I will provide them upon request or will upload necessary source codes soon. (Contact Info: seoleuns@kriss.re.kr)
+The size of Numpy Array Datasets is quite large and I will provide them upon request or will upload necessary source codes soon.
+(Contact Info: Seoleun Shin, seoleuns@kriss.re.kr)
 
