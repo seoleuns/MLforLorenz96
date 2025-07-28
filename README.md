@@ -1,6 +1,6 @@
 # MLforLorenz96
 
-The related manuscript has been submitted to Scientific Reports.
+The related manuscript has been submitted to Physical Review E.
 
 This repository will be updated further as the revision progresses.
 
