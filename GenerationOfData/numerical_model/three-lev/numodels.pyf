@@ -1,0 +1,87 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module numodels ! in 
+    interface  ! in :numodels
+        module params ! in :numodels:params.f90
+            real(kind=8), parameter,optional :: dt=0.0018
+            integer, parameter,optional :: nx=40
+            integer, parameter,optional :: ny=10
+            integer, parameter,optional :: nz=10
+            integer, parameter,optional,depend(nx,ny,nz) :: n=4440
+            real(kind=8), parameter,optional :: f=20.08
+            real(kind=8), parameter,optional :: h=1.08
+            real(kind=8), parameter,optional :: c=10.08
+            real(kind=8), parameter,optional :: b=10.08
+            real(kind=8), parameter,optional :: e=10.08
+            real(kind=8), parameter,optional :: d=10.08
+            real(kind=8), parameter,optional :: g_z=1.08
+        end module params
+        module lorenz96 ! in :numodels:lorenz96.f90
+            use params
+            function ode_one_layer(state) result (tend) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(40),intent(in) :: state
+                real(kind=8) dimension(40) :: tend
+            end function ode_one_layer
+            function ode_two_layer(state) result (tend) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(440),intent(in) :: state
+                real(kind=8) dimension(440) :: tend
+            end function ode_two_layer
+            function ode_three_layer(state) result (tend) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(4440),intent(in) :: state
+                real(kind=8) dimension(4440) :: tend
+            end function ode_three_layer
+            function dxdt(x,y) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(40),intent(in) :: x
+                real(kind=8) dimension(400),intent(in) :: y
+                real(kind=8) dimension(40) :: dxdt
+            end function dxdt
+            function dydt_two_layer(x,y) result (dydt) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(40),intent(in) :: x
+                real(kind=8) dimension(400),intent(in) :: y
+                real(kind=8) dimension(400) :: dydt
+            end function dydt_two_layer
+            function dydt_three_layer(x,y,z) result (dydt) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(40),intent(in) :: x
+                real(kind=8) dimension(400),intent(in) :: y
+                real(kind=8) dimension(4000),intent(in) :: z
+                real(kind=8) dimension(400) :: dydt
+            end function dydt_three_layer
+            function dzdt(y,z) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(400),intent(in) :: y
+                real(kind=8) dimension(4000),intent(in) :: z
+                real(kind=8) dimension(4000) :: dzdt
+            end function dzdt
+            function sum_2d(array) ! in :numodels:lorenz96.f90:lorenz96
+                real(kind=8) dimension(:,:),intent(in) :: array
+                real(kind=8) dimension(size(array, 2)) :: sum_2d
+            end function sum_2d
+        end module lorenz96
+        subroutine step_one_layer(input,output) ! in :numodels:numodels.f90
+            use params
+            use lorenz96, only: ode_one_layer
+            real(kind=8) dimension(40),intent(in) :: input
+            real(kind=8) dimension(40),intent(out) :: output
+            integer intent(aux) :: nx
+        end subroutine step_one_layer
+        subroutine step_two_layer(input,output) ! in :numodels:numodels.f90
+            use params
+            use lorenz96, only: ode_two_layer
+            real(kind=8) dimension(440),intent(in) :: input
+            real(kind=8) dimension(440),intent(out) :: output
+            integer intent(aux) :: nx
+            integer intent(aux) :: ny
+        end subroutine step_two_layer
+        subroutine step_three_layer(input,output) ! in :numodels:numodels.f90
+            use params
+            use lorenz96, only: ode_three_layer
+            real(kind=8) dimension(4440),intent(in) :: input
+            real(kind=8) dimension(4440),intent(out) :: output
+            integer intent(aux) :: n
+        end subroutine step_three_layer
+    end interface 
+end python module numodels
+
+! This file was auto-generated with f2py (version:1.26.2).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e
