@@ -2,9 +2,9 @@
 
 The related manuscript has been submitted to Physical Review E.
 
-This repository will be updated further as the revision progresses.
+This repository will be updated further as soon as the review process begins.
 
-The directory "Model" provides codes for the default ML prediction for Lorenz '96 system.
+The directory "Model" provides codes for the default Diff96DDPM/DDIM prediction for Lorenz '96 system.
 
 The Framework is based on the DiffSTG at https://github.com/wenhaomin/DiffSTG
 
@@ -16,7 +16,7 @@ Changes for the applications to the Lorenz '96 system have been made:
 4. A New Sampling strategy during the reverse processes in DDIM and DDPM 
 5. Use of diverse evaluation Metrics for Time series Data
 
-The size of Numpy Array Datasets is quite large and I will provide them upon request or will upload necessary source codes soon.
+The size of Numpy Array Datasets is quite large and I will provide them upon request or will upload necessary source code to generate them.
 
 (Contact Info: Seoleun Shin, seoleuns@kriss.re.kr)
 
