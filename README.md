@@ -2,9 +2,10 @@
 
 The related manuscript has been submitted to Physical Review E.
 
-This repository will be updated further as soon as the review process begins.
+This repository will be updated further if it is necessary.
 
 The directory "Model" provides codes for the default Diff96DDPM/DDIM prediction for Lorenz '96 system.
+It also contains LAFDiff but this directory may move in other place for a better structure of file hierarchy.
 
 The Framework is based on the DiffSTG at https://github.com/wenhaomin/DiffSTG
 
