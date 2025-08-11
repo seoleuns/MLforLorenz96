@@ -1,5 +1,5 @@
 This directory contains python codes for the simulation of Lorenz '96 system.
 
-The resulting states are data for training of the model.
+The resulting states are raw data for training of the model.
 
-They are originally from Sam Hatfield (https://github.com/samhatfield/ml_da) but this is not available at that site.
+The generated data needs to be transformed into npy files by python code so that it can be used for training within the framework.
