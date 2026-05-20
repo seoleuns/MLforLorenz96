@@ -181,8 +181,8 @@ def nu_config(data='AIR_BJ'):
     confignu.data.name = data
     confignu.data.path = ws + '/data/dataset/'
 
-    confignu.data.feature_file = confignu.data.path + confignu.data.name + '/40everylongmydat.npy'
-    confignu.data.spatial = confignu.data.path + confignu.data.name + '/40everylonggriddat.npy'
+    confignu.data.feature_file = confignu.data.path + confignu.data.name + '/fortest40everylongmydat.npy'
+    confignu.data.spatial = confignu.data.path + confignu.data.name + '/fortest40everylonggriddat.npy'
     confignu.data.num_recent = 1
 
     if confignu.data.name == 'LoM':
