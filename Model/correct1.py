@@ -94,7 +94,7 @@ def assimilate1(ensemble, obs, obs_covar):
     # Sequentially process observations
     for i, ob in enumerate(obslist):
         # Ensemble covariance times transpose of observation matrix
-        P_f_H_T = np.matmul(X_f_trans, observeop(X_f, i))/(n_ens - 1)
+        P_f_H_T = np.matmul(X_f.T, observeop(X_f, i))/(n_ens - 1)
 
         HP_f_H_T = observeop(P_f_H_T, i)
 
